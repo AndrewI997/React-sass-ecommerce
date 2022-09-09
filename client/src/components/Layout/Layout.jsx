@@ -12,9 +12,9 @@ const Layout = ({ children }) => {
     return (
         <div className={styles.layoutWrapp}>
             <Header />
-            <mine className={styles.contentWrapp}>
+            <main className={styles.contentWrapp}>
                 {children}
-            </mine>
+            </main>
             <Footer />
         </div>
 

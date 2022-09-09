@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './ItemCard.module.scss'
-import images from '../../../images/kitchen.jpg'
+import images from '../../../images/kitchen.webp'
 
 const ItemCard = ({ obj, name, price, setModalActive, setItemCardModalActive, setShowItemState }) => {
 
