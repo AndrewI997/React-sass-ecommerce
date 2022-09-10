@@ -10,9 +10,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <Wrapper>
-        <ItemBlock itemCardModalActive={itemCardModalActive} setItemCardModalActive={setItemCardModalActive} setModalActive={setModalActive} />
-      </Wrapper>
+      <ItemBlock itemCardModalActive={itemCardModalActive} setItemCardModalActive={setItemCardModalActive} setModalActive={setModalActive} />
       <ModalPopup active={modalActive} setActive={setModalActive} />
     </>
   )
