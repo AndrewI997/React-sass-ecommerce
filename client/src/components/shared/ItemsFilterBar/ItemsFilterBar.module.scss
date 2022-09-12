@@ -1,11 +1,13 @@
 .filterBarWrapp {
 
     .filterBarWrapp {
+        display: flex;
+        align-items: center;
 
         ul {
             display: flex;
             justify-content: flex-start;
-            padding: 20px;
+            padding: 10px;
 
             li {
                 list-style: none;
@@ -14,6 +16,11 @@
                 padding: 10px;
                 border-radius: 10px;
                 background-color: antiquewhite;
+
+                &.active {
+                    background-color: rgb(67, 67, 67);
+                    color: antiquewhite;
+                }
             }
         }
     

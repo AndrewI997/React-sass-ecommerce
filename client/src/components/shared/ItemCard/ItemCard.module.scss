@@ -9,7 +9,7 @@ h3 {
   width: auto;
   // grid-template-rows: repeat(1, 1fr);
   grid-column-gap: 0;
-  grid-row-gap: 0;
+  // grid-row-gap: 0;
   justify-items: center;
   align-items: center;
   font-family: Nunito, sans-serif;
@@ -84,6 +84,7 @@ h3 {
   cursor: pointer;
   display: block;
   width: 134px;
+  margin-left: 10px;
   background: #C7A17A;
   border-radius: 19px;
   text-align: center;
@@ -93,7 +94,7 @@ h3 {
 
 .toggleInfo {
   display: block;
-  margin-left: 10px;
+  
   color: #415167;
   background: none;
   border: none;

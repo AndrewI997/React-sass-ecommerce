@@ -9,7 +9,12 @@ import ItemsFilterBar from '../../shared/ItemsFilterBar/ItemsFilterBar';
 
 const ItemBlock = ({ setModalActive, itemCardModalActive, setItemCardModalActive }) => {
 
-    const [showItemState, setShowItemState] = React.useState();
+    const [clickedType, setClickedType] = React.useState(0)
+    const [clickedSubType, setClickedSubType] = React.useState(0)
+    const [clickedStyle, setClickedStyle] = React.useState(0)
+    const [clickedKind, setClickedKind] = React.useState(0)
+
+    const [showItemModal, setShowItemModal] = React.useState();
     const [itemsState, setItemsState] = React.useState([]);
 
     React.useEffect(() => {
@@ -25,14 +30,35 @@ const ItemBlock = ({ setModalActive, itemCardModalActive, setItemCardModalActive
     return (
 
         <Wrapper>
-            <ItemsFilterBar />
+            <ItemsFilterBar
+                clickedType={clickedType}
+                setClickedType={(id) => setClickedType(id)}
+                clickedSubType={clickedSubType}
+                setClickedSubType={(id) => setClickedSubType(id)}
+                clickedStyle={clickedStyle}
+                setClickedStyle={(id) => setClickedStyle(id)}
+                clickedKind={clickedKind}
+                setClickedKind={(id) => setClickedKind(id)} />
+
             <div className={styles.itemsBlockWrapp}>
                 {
                     itemsState.map((obj) => (
-                        <ItemCard key={obj.id} setShowItemState={setShowItemState} setItemCardModalActive={setItemCardModalActive} setModalActive={setModalActive} obj={obj} name={obj.name} price={'От' + ' ' + obj.price + 'p'} img={obj.imageUrl} />
+                        <ItemCard
+                            key={obj.id}
+                            setShowItemModal={setShowItemModal}
+                            setItemCardModalActive={setItemCardModalActive}
+                            setModalActive={setModalActive}
+                            obj={obj}
+                            name={obj.name}
+                            price={'От' + ' ' + obj.price + 'p'}
+                            img={obj.imageUrl} />
                     ))
                 }
-                <ItemCardModal setModalActive={setModalActive} showItemState={showItemState} itemCardModalActive={itemCardModalActive} setItemCardModalActive={setItemCardModalActive} />
+                <ItemCardModal
+                    setModalActive={setModalActive}
+                    showItemModal={showItemModal}
+                    itemCardModalActive={itemCardModalActive}
+                    setItemCardModalActive={setItemCardModalActive} />
             </div>
         </Wrapper>
     )

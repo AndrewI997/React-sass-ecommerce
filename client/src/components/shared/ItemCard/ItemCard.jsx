@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './ItemCard.module.scss'
 import images from '../../../images/kitchen.webp'
 
-const ItemCard = ({ obj, name, price, setModalActive, setItemCardModalActive, setShowItemState }) => {
+const ItemCard = ({ obj, name, price, setModalActive, setItemCardModalActive, setShowItemModal }) => {
 
 
     return (
@@ -18,11 +18,11 @@ const ItemCard = ({ obj, name, price, setModalActive, setItemCardModalActive, se
                     </p>
                     <p>Цена: <span className={styles.price}>{price}</span></p>
                     <div className={styles.toggleWrap}>
-                        <button className={styles.toggleBuy} onClick={() => setModalActive(true)}>Заказать</button>
                         <p className={styles.toggleInfo} onClick={() => {
                             setItemCardModalActive(true)
-                            setShowItemState(obj)
+                            setShowItemModal(obj)
                         }} href="#">Подробнее..</p>
+                        <button className={styles.toggleBuy} onClick={() => setModalActive(true)}>Заказать</button>
                     </div>
                 </div>
             </div>

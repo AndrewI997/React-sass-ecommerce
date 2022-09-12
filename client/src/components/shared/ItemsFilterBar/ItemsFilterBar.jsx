@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './ItemsFilterBar.module.scss'
 
-const ItemsFilterBar = () => {
+const ItemsFilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubType, clickedStyle, setClickedStyle, clickedKind, setClickedKind }) => {
 
-    const [items, setItems] = React.useState([]);
-    const [items2, setItems2] = React.useState([]);
-    const [items3, setItems3] = React.useState([]);
-    const [items4, setItems4] = React.useState([]);
+    const [types, setTypes] = React.useState([]);
+    const [subTypes, setSubTypes] = React.useState([]);
+    const [stylesheets, setStylesheets] = React.useState([]);
+    const [kinds, setKinds] = React.useState([]);
 
     React.useEffect(() => {
         fetch('http://localhost:1111/item-types')
@@ -14,7 +14,7 @@ const ItemsFilterBar = () => {
                 return res.json()
             })
             .then((items) => {
-                setItems(items)
+                setTypes(items)
             })
 
         fetch('http://localhost:1111/item-sub-types')
@@ -22,7 +22,7 @@ const ItemsFilterBar = () => {
                 return res.json()
             })
             .then((items) => {
-                setItems2(items)
+                setSubTypes(items)
             })
 
         fetch('http://localhost:1111/item-styles')
@@ -30,45 +30,78 @@ const ItemsFilterBar = () => {
                 return res.json()
             })
             .then((items) => {
-                setItems3(items)
+                setStylesheets(items)
             })
         fetch('http://localhost:1111/item-kinds')
             .then((res) => {
                 return res.json()
             })
             .then((items) => {
-                setItems4(items)
+                setKinds(items)
             })
     }, [])
-    
+
     return (
         <div className={styles.filterBarWrapp} >
             <div className={styles.filterBarWrapp} >
+                <h2>Тип:</h2>
                 <ul>
                     {
-                        items.map((obj) => (
-                            <li key={obj.id} >{obj.name}</li>
+                        types.map((obj, i) => (
+                            <li key={obj.name}
+                                onClick={() => setClickedType(i)}
+                                className={clickedType === i ? styles.active : ''}
+                            >
+                                {obj.name}
+                            </li>
                         ))
                     }
                 </ul>
+            </div>
+
+            <div className={styles.filterBarWrapp} >
+                <h2>Вид:</h2>
                 <ul>
                     {
-                        items2.map((obj) => (
-                            <li key={obj.id} >{obj.name}</li>
+                        subTypes.map((obj, i) => (
+                            <li key={obj.name}
+                                onClick={() => setClickedSubType(obj.id)}
+                                className={clickedSubType === i ? styles.active : ''}
+                            >
+                                {obj.name}
+                            </li>
                         ))
                     }
                 </ul>
+            </div>
+
+            <div className={styles.filterBarWrapp} >
+                <h2>Стиль:</h2>
                 <ul>
                     {
-                        items3.map((obj) => (
-                            <li key={obj.id} >{obj.name}</li>
+                        stylesheets.map((obj, i) => (
+                            <li key={obj.name}
+                                onClick={() => setClickedStyle(obj.id)}
+                                className={clickedStyle === i ? styles.active : ''}
+                            >
+                                {obj.name}
+                            </li>
                         ))
                     }
                 </ul>
+            </div>
+
+            <div className={styles.filterBarWrapp} >
+                <h2>Вариация:</h2>
                 <ul>
                     {
-                        items4.map((obj) => (
-                            <li key={obj.id} >{obj.name}</li>
+                        kinds.map((obj, i) => (
+                            <li key={obj.name}
+                                onClick={() => setClickedKind(obj.id)}
+                                className={clickedKind === i ? styles.active : ''}
+                            >
+                                {obj.name}
+                            </li>
                         ))
                     }
                 </ul>
