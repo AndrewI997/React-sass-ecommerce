@@ -9,7 +9,7 @@ const ItemsFilterBar = ({ clickedType, setClickedType, clickedSubType, setClicke
     const [kinds, setKinds] = React.useState([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:1111/item-types')
+        fetch('http://localhost:1111/item-type')
             .then((res) => {
                 return res.json()
             })
@@ -17,7 +17,7 @@ const ItemsFilterBar = ({ clickedType, setClickedType, clickedSubType, setClicke
                 setTypes(items)
             })
 
-        fetch('http://localhost:1111/item-sub-types')
+        fetch('http://localhost:1111/item-sub-type')
             .then((res) => {
                 return res.json()
             })
@@ -25,14 +25,14 @@ const ItemsFilterBar = ({ clickedType, setClickedType, clickedSubType, setClicke
                 setSubTypes(items)
             })
 
-        fetch('http://localhost:1111/item-styles')
+        fetch('http://localhost:1111/item-style')
             .then((res) => {
                 return res.json()
             })
             .then((items) => {
                 setStylesheets(items)
             })
-        fetch('http://localhost:1111/item-kinds')
+        fetch('http://localhost:1111/item-kind')
             .then((res) => {
                 return res.json()
             })
@@ -65,7 +65,7 @@ const ItemsFilterBar = ({ clickedType, setClickedType, clickedSubType, setClicke
                     {
                         subTypes.map((obj, i) => (
                             <li key={obj.name}
-                                onClick={() => setClickedSubType(obj.id)}
+                                onClick={() => setClickedSubType(i)}
                                 className={clickedSubType === i ? styles.active : ''}
                             >
                                 {obj.name}
@@ -81,7 +81,7 @@ const ItemsFilterBar = ({ clickedType, setClickedType, clickedSubType, setClicke
                     {
                         stylesheets.map((obj, i) => (
                             <li key={obj.name}
-                                onClick={() => setClickedStyle(obj.id)}
+                                onClick={() => setClickedStyle(i)}
                                 className={clickedStyle === i ? styles.active : ''}
                             >
                                 {obj.name}
@@ -97,7 +97,7 @@ const ItemsFilterBar = ({ clickedType, setClickedType, clickedSubType, setClicke
                     {
                         kinds.map((obj, i) => (
                             <li key={obj.name}
-                                onClick={() => setClickedKind(obj.id)}
+                                onClick={() => setClickedKind(i)}
                                 className={clickedKind === i ? styles.active : ''}
                             >
                                 {obj.name}

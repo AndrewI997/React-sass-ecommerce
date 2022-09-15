@@ -1,8 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Wrapper from '../components/shared/Wrapper/Wrapper';
 
 const AdminPage = () => {
   return (
-    <div>AdminPage</div>
+    <Wrapper>
+      <div>
+        <button>Типы</button>
+        <button>Под типы</button>
+        <button>Стили</button>
+        <button>Виды</button>
+        <button>Товары</button>
+      </div>
+    </Wrapper>
+
   )
 }
 

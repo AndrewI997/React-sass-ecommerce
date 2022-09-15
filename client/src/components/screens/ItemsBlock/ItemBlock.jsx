@@ -18,7 +18,7 @@ const ItemBlock = ({ setModalActive, itemCardModalActive, setItemCardModalActive
     const [itemsState, setItemsState] = React.useState([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:1111/items')
+        fetch('http://localhost:1111/item')
             .then((res) => {
                 return res.json()
             })
